@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+  </head>
+  <header>
+      <!-- Title -->
+      <nav class="navbar navbar-light bg-light">
+        <h1 class="navbar-brand" onclick="window.location='index.html'">
+          Tic Tac Toe
+        </h1>
+      </nav>
+  </header>
+  <body>
+    <div id="Choose" style="width:100%;">
+        <button id="level1" class="level" style="width:20%">Easy Mode 
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <button id="level2" class="level" style="width:20%">Hard Mode
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <button id="level3" class="level" style="width:20%">Expert Mode
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+    </div>
+    <div id="playGame">
+      <button id="StartBtn" class="StartBtn" style="width:20%">Start Play </button>
+    </div>
+    <div id="container" style="display:none">
+      <div id="board">
+        <div class="row">
+          <div id="card00" class="card" data-row="0" data-col="0"></div>
+          <div id="card01" class="card" data-row="0" data-col="1"></div>
+          <div id="card02" class="card" data-row="0" data-col="2"></div>
+        </div>
+        <div class="row">
+          <div id="card10" class="card" data-row="1" data-col="0"></div>
+          <div id="card11" class="card" data-row="1" data-col="1"></div>
+          <div id="card12" class="card" data-row="1" data-col="2"></div>
+        </div>
+        <div class="row">
+          <div id="card20" class="card" data-row="2" data-col="0"></div>
+          <div id="card21" class="card" data-row="2" data-col="1"></div>
+          <div id="card22" class="card" data-row="2" data-col="2"></div>
+        </div>
+      </div>
+      <div id="status">Player X's turn</div>
+      <div class="buttons">
+    <button id="reset-button" class="BoardBtn">Reset<span></span><span></span><span></span><span></span><span></span><span></span></button>
+    <button id="back-button" class="BoardBtn">Back To Menu<span></span><span></span><span></span><span></span><span></span><span></span></button>
+      </div>
+    <script src="scriptPc.js"></script>
+  </div>
+  </body>
+
+</html>

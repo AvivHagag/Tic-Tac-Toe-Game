@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/menu/stylemenu.css">
+  
+  <title>Document</title>
+</head>
+<body>
+  <!-- <div class="imgTitle"> -->
+  <img src="/menu/TitleLogo2.png" alt="Title" id="imgTitle" width="400" height="300">
+  <!-- </div> -->
+  <div class="ocean">
+    <div class="wave"></div>
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none">
+      <defs>
+         <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+      </defs>
+      <g class="wavies">
+        <use xlink:href="#gentle-wave" x="50" y="0" fill="#d5d5d5"/>
+        <use xlink:href="#gentle-wave" x="50" y="3" fill="#e5e5e5"/>
+        <use xlink:href="#gentle-wave" x="50" y="6" fill="white"/>  
+      </g>
+     </svg>
+    <div class="wave"></div>
+  </div>
+  <div></div>
+  
+  <nav class="menu">
+    <input type="checkbox" href="#" class="menu-open" name="menu-open" id="menu-open" onclick="hideDiv()"/>
+    <label class="menu-open-button" for="menu-open">
+     <span class="lines line-1"></span>
+     <span class="lines line-2"></span>
+     <span class="lines line-3"></span>
+   </label>
+  
+    <a href="#" class="menu-item color1" for="menu-open"> <i class="fa fa-anchor"></i></a>
+    <!-- <a href="#" class="menu-item green"> <i class="fa fa-coffee"></i> </a> -->
+    <a href="Tic2.html" class="menu-item color2" for="menu-open"> <i class="fa fa-heart"></i> </a>
+    <!-- <a href="#" class="menu-item purple"> <i class="fa fa-microphone"></i> </a> -->
+    <a href="Tic.html" class="menu-item color3" for="menu-open"> <i class="fa fa-star" ></i> </a>
+    <!-- <a href="#" class="menu-item lightblue"> <i class="fa fa-diamond"></i> </a> -->
+  </nav>
+</body>
+</html>
+<script>
+  let flag=document.getElementById("menu-open");
+  window.onbeforeunload = function() {
+  flag.checked=false;
+  console.log(flag.checked = getCookie("menuOpen"));
+  }
+  function hideDiv() {
+    if(flag.checked=="1") {
+      document.getElementById("imgTitle").style.display = "none";
+      console.log(flag.checked);
+    }
+    else 
+      document.getElementById("imgTitle").style.display = "block";
+      console.log(flag.checked);
+      
+  }
+</script>

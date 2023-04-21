@@ -1,0 +1,561 @@
+ header {
+  background-color: white;
+  border-bottom: 3px dotted black;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+} 
+
+body {
+  padding: 6% 0;
+  margin: auto;
+  background-image: url('img/wallpaper.jpg');
+}
+
+#board {
+    background-color: white;
+    display: flex;
+    width: 400px;
+    margin: auto;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .row {
+    display: flex;
+  }
+  
+  .card {
+    width: 100px;
+    height: 100px;
+    font-size: 60px;
+    text-align: center;
+    line-height: 100px;
+    margin: 10px;
+    cursor: pointer;
+    background-color: transparent;
+    border: 2px solid black;
+    transition: transform 0.3s;
+  }
+  
+  .card.X {
+    color: white;
+    background-color: rgb(255, 32, 32);
+    border-color: white;
+  }
+  
+  .card.O {
+    color: white;
+    background-color: rgb(13, 69, 255);
+    border-color: white;
+  }
+
+  .card.W {
+    color: white;
+    background-color: goldenrod;
+    border-width: 0px;
+  }
+  .card.Tie {
+    color: black;
+    background-color: silver;
+    border-width: 0px;
+  }
+  
+  .card:hover {
+    transform: scale(1.1);
+  }
+  
+  #status {
+    font-size: 24px;
+    margin-top: 30px;
+    text-align: center;
+  }
+  
+  .buttons {
+    margin:2% auto;  
+    size: 200px;
+    width: 400px;
+    justify-content: center;
+    display: flex; 
+  }
+
+  .BoardBtn {
+    position: relative;
+    display: inline-block;
+    margin: 4px 20px;
+    font-size: 20px;
+    padding: 10px 10px;
+    background-color: white;
+    border: 1px black solid;
+    color: black;
+  }
+  .BoardBtn:hover {
+    color:black;
+    text-shadow: 0 0 7px black;
+    letter-spacing: .12em;
+  }
+  .BoardBtn span {
+    position: absolute;
+    display: block;
+    background-color: #000;
+  }
+  .BoardBtn span:nth-child(1) {
+    left: 0;
+    top: 0;
+    width: 50.5%;
+    height: 2.5px;
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: transform .5s;
+  }
+  .BoardBtn:hover span:nth-child(1) {
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+  .BoardBtn span:nth-child(2) {
+    right: 0;
+    top: 0;
+    width: 50.5%;
+    height: 2.5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s;
+  }
+  .BoardBtn:hover span:nth-child(2) {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  .BoardBtn span:nth-child(3) {
+    right: 0;
+    top: 0;
+    width: 2.5px;
+    height: 100%;
+    transform-origin: bottom;
+    transform: scaleY(0);
+    transition: transform .5s;
+    transition-delay: .2s;
+  }
+  .BoardBtn:hover span:nth-child(3) {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+  .BoardBtn span:nth-child(4) {
+    left: 0;
+    top: 0;
+    width: 2.5px;
+    height: 100%;
+    transform-origin: bottom;
+    transform: scaleY(0);
+    transition: transform .5s;
+    transition-delay: .2s;
+  }
+  .BoardBtn:hover span:nth-child(4) {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+  .BoardBtn span:nth-child(5) {
+    left: 0;
+    bottom: 0;
+    width: 50.5%;
+    height: 2.5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s;
+    transition-delay: .3s;
+  }
+  .BoardBtn:hover span:nth-child(5) {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  .BoardBtn span:nth-child(6) {
+    right: 0;
+    bottom: 0;
+    width: 50.5%;
+    height: 2.5px;
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: transform .5s;
+    transition-delay: .3s;
+  }
+  .BoardBtn:hover span:nth-child(6) {
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+  
+  .zoom-in-out-box {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    background: #ffffff;
+    animation: zoom-in-zoom-out 2s ease infinite;
+  }
+  
+  @keyframes zoom-in-zoom-out {
+    10% {
+      transform: scale(0.9, 0.9);
+    }
+    50% {
+      transform: scale(1.1, 1.1);
+    }
+    100% {
+      transform: scale(0.9, 0.9);
+    }
+  }
+  /* .modal {
+    display: none;
+    background: #fff;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+    padding: 1em;
+ }
+  @media (min-width: 43.75em) {
+    .modal {
+      padding: 1.5em;
+   }
+ }
+  .modal > label {
+    background: #ffd300;
+    border: 1px solid #f0c600;
+    border-radius: 0.2em;
+    color: #000;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: bold;
+    padding: 0.75em 1.5em;
+    text-shadow: 1px 1px 1px #fff;
+    transition: all 0.55s;
+ }
+  .modal > label:hover {
+    transform: scale(0.97);
+ }
+  .modal__overlay {
+    background: #000;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    text-align: center;
+    text-shadow: none;
+    top: 0;
+    z-index: 600;
+ }
+  .modal__wrap {
+    padding: 1em 0;
+    position: relative;
+    margin: 0 auto;
+    max-width: 500px;
+    width: 90%;
+ }
+  @media (min-width: 50em) {
+    .modal__wrap {
+      padding: 1.75em;
+   }
+ }
+  @media (min-height: 37.5em) {
+    .modal__wrap {
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -80%);
+   }
+ }
+  .modal input:focus ~ label {
+    transform: scale(0.97);
+ }
+  input {
+    position: absolute;
+    top: -1000px;
+ }
+  .modal__overlay {
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.75s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: -100;
+ }
+  input:checked ~ .modal__overlay {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 800;
+ } */
+  
+#Choose {
+  margin:5% auto;  
+  size: 400px;
+  justify-content: center;
+  display: flex; 
+}
+.level {
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  border-radius: 4px;
+  height: 80px;
+  font-size: 20px;
+  margin: 4px;
+  background-color: white;
+  border: 1px black solid;
+  color: black;
+}
+.level:hover {
+  color:black;
+  text-shadow: 0 0 7px black;
+  letter-spacing: .12em;
+}
+.level span {
+  position: absolute;
+  display: block;
+  background-color: #000;
+}
+.level span:nth-child(1) {
+  left: 0;
+  top: 0;
+  width: 50.5%;
+  height: 2.5px;
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform .5s;
+}
+.level:hover span:nth-child(1) {
+  transform: scaleX(1);
+  transform-origin: right;
+}
+.level span:nth-child(2) {
+  right: 0;
+  top: 0;
+  width: 50.5%;
+  height: 2.5px;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform .5s;
+}
+.level:hover span:nth-child(2) {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+.level span:nth-child(3) {
+  right: 0;
+  top: 0;
+  width: 2.5px;
+  height: 100%;
+  transform-origin: bottom;
+  transform: scaleY(0);
+  transition: transform .5s;
+  transition-delay: .2s;
+}
+.level:hover span:nth-child(3) {
+  transform: scaleY(1);
+  transform-origin: top;
+}
+.level span:nth-child(4) {
+  left: 0;
+  top: 0;
+  width: 2.5px;
+  height: 100%;
+  transform-origin: bottom;
+  transform: scaleY(0);
+  transition: transform .5s;
+  transition-delay: .2s;
+}
+.level:hover span:nth-child(4) {
+  transform: scaleY(1);
+  transform-origin: top;
+}
+.level span:nth-child(5) {
+  left: 0;
+  bottom: 0;
+  width: 50.5%;
+  height: 2.5px;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform .5s;
+  transition-delay: .3s;
+}
+.level:hover span:nth-child(5) {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+.level span:nth-child(6) {
+  right: 0;
+  bottom: 0;
+  width: 50.5%;
+  height: 2.5px;
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform .5s;
+  transition-delay: .3s;
+}
+.level:hover span:nth-child(6) {
+  transform: scaleX(1);
+  transform-origin: right;
+}
+
+.levelChoosen {
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  border-radius: 4px;
+  height: 80px;
+  font-size: 20px;
+  margin: 4px;
+  background-color: black;
+  border: 1px white solid;
+  color: white;
+}
+.levelChoosen:hover {
+  color:white;
+  text-shadow: 0 0 4px white;
+  letter-spacing: .12em;
+}
+.levelChoosen span {
+  position: absolute;
+  display: block;
+  background-color: white;
+}
+.levelChoosen span:nth-child(1) {
+  left: 0;
+  top: 0;
+  width: 50.5%;
+  height: 2.5px;
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform .5s;
+}
+.levelChoosen:hover span:nth-child(1) {
+  transform: scaleX(1);
+  transform-origin: right;
+}
+.levelChoosen span:nth-child(2) {
+  right: 0;
+  top: 0;
+  width: 50.5%;
+  height: 2.5px;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform .5s;
+}
+.levelChoosen:hover span:nth-child(2) {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+.levelChoosen span:nth-child(3) {
+  right: 0;
+  top: 0;
+  width: 2.5px;
+  height: 100%;
+  transform-origin: bottom;
+  transform: scaleY(0);
+  transition: transform .5s;
+  transition-delay: .2s;
+}
+.levelChoosen:hover span:nth-child(3) {
+  transform: scaleY(1);
+  transform-origin: top;
+}
+.levelChoosen span:nth-child(4) {
+  left: 0;
+  top: 0;
+  width: 2.5px;
+  height: 100%;
+  transform-origin: bottom;
+  transform: scaleY(0);
+  transition: transform .5s;
+  transition-delay: .2s;
+}
+.levelChoosen:hover span:nth-child(4) {
+  transform: scaleY(1);
+  transform-origin: top;
+}
+.levelChoosen span:nth-child(5) {
+  left: 0;
+  bottom: 0;
+  width: 50.5%;
+  height: 2.5px;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform .5s;
+  transition-delay: .3s;
+}
+.levelChoosen:hover span:nth-child(5) {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+.levelChoosen span:nth-child(6) {
+  right: 0;
+  bottom: 0;
+  width: 50.5%;
+  height: 2.5px;
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform .5s;
+  transition-delay: .3s;
+}
+.levelChoosen:hover span:nth-child(6) {
+  transform: scaleX(1);
+  transform-origin: right;
+}
+
+.navbar-brand:hover {
+  cursor: pointer;
+}
+#playGame {
+  size: 400px;
+  justify-content: center;
+  display: flex; 
+}
+.StartBtn {
+  cursor: pointer;
+  border-radius: 4px;
+  height: 80px;
+  font-size: 20px;
+  margin: 4px 12px;
+  background-color: white;
+  border: 1px black solid;
+  color: black;
+}
+.StartBtn2 {
+  cursor: pointer;
+  border-radius: 4px;
+  height: 80px;
+  font-size: 24px;
+  font-family: sans-serif;
+  text-decoration: none;
+  letter-spacing: 2px;
+  margin: 4px 12px;
+  background-color: #38E54D;
+  border: 2px white solid;
+  color: white;
+}
+.StartBtn2:after {
+  content: '\23F5';
+}
+.StartBtn2 {
+  animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both infinite;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.StartBtn2:hover {
+  letter-spacing: .20em;
+}
+
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}

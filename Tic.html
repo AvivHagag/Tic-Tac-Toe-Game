@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+  </head>
+  <header>
+      <!-- Title -->
+      <nav class="navbar navbar-light bg-light">
+        <h1 class="navbar-brand" onclick="window.location='index.html'">
+          Tic Tac Toe
+        </h1>
+      </nav>
+  </header>
+  <body>
+    <div id="container">
+      <div id="board">
+        <div class="row">
+          <div id="card00" class="card" data-row="0" data-col="0"></div>
+          <div id="card01" class="card" data-row="0" data-col="1"></div>
+          <div id="card02" class="card" data-row="0" data-col="2"></div>
+        </div>
+        <div class="row">
+          <div id="card10" class="card" data-row="1" data-col="0"></div>
+          <div id="card11" class="card" data-row="1" data-col="1"></div>
+          <div id="card12" class="card" data-row="1" data-col="2"></div>
+        </div>
+        <div class="row">
+          <div id="card20" class="card" data-row="2" data-col="0"></div>
+          <div id="card21" class="card" data-row="2" data-col="1"></div>
+          <div id="card22" class="card" data-row="2" data-col="2"></div>
+        </div>
+      </div>
+      <div id="status">Player X's turn</div>
+    <button id="reset-button">Reset</button>
+    <script src="script.js"></script>
+  </div>
+  </body>
+
+</html>
