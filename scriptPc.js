@@ -65,6 +65,18 @@ StartBtn.onclick = function() {
   Choose.style.display = "none";
   StartbtnDiv.style.display = "none";
   container.style.display= "block";
+  if(Gameplay==3) {
+    // Array of numbers
+    const numbers = [0, 2];
+    // Randomly choose a number from the array
+    const randomIndex = Math.floor(Math.random() * numbers.length);
+    const randomNumber1 = numbers[randomIndex];
+    const randomIndex2 = Math.floor(Math.random() * numbers.length);
+    const randomNumber2 = numbers[randomIndex2];
+    board[randomNumber1][randomNumber2] = 'O';
+    console.log("Pc start !")
+    drawBoard();
+  }
 }
 BackToMenu.onclick = function() {
   resetGame();
@@ -205,62 +217,561 @@ function cardClicked() {
     } else {
       // Switch to the other player
       if (player === 'X') {
-        // Switch to the Computer
-        player = 'O';
-        //Status of the player
-        var status = document.getElementById('status');
-        status.textContent = "Computer O's turn";
-        // Set delay for fun
-        setTimeout(function() {
-          // Make the computer's move
-          var openSpots = [];
-          for (var i = 0; i < 3; i++) {
-            for (var j = 0; j < 3; j++) {
-              if (board[i][j] === '') {
-                openSpots.push({ row: i, col: j });
-              }
-            }
-          }
-          var computerMove = openSpots[Math.floor(Math.random() * openSpots.length)];
-          board[computerMove.row][computerMove.col] = 'O';
-          
-          // Switch back to the player
-          player = 'X';
-          //Status of the player
-          var status = document.getElementById('status');
-          status.textContent = "Player X's turn"; 
-          running=false;
-
-          // Check for a winner or a tie
-          checkWinner();
-          
-          // Draw the board
-          drawBoard();
-          
-          // Check if the game is over
-          if (winner !== null) {
-            // Display the winner or tie message
+        switch(Gameplay) {
+          case 1: {
+            console.log("1"); 
+            // Switch to the Computer
+            player = 'O';
+            //Status of the player
             var status = document.getElementById('status');
-            if (winner === 'T') {
-              status.textContent ="It's a tie!";
-            } else {
-              status.textContent = "Winner: " + winner;
-            }
-            
-            // Disable all the cards
-            var cards = document.getElementsByClassName('card');
-            for (var i = 0; i < cards.length; i++) {
-              cards[i].removeEventListener('click', cardClicked);
-            }
+            status.textContent = "Computer O's turn";
+            // Set delay for fun
+            setTimeout(function() {
+              // Make the computer's move
+              var openSpots = [];
+              for (var i = 0; i < 3; i++) {
+                for (var j = 0; j < 3; j++) {
+                  if (board[i][j] === '') {
+                    openSpots.push({ row: i, col: j });
+                  }
+                }
+              }
+              var computerMove = openSpots[Math.floor(Math.random() * openSpots.length)];
+              board[computerMove.row][computerMove.col] = 'O';
+              
+              // Switch back to the player
+              player = 'X';
+              //Status of the player
+              var status = document.getElementById('status');
+              status.textContent = "Player X's turn"; 
+              running=false;
+
+              // Check for a winner or a tie
+              checkWinner();
+              
+              // Draw the board
+              drawBoard();
+              
+              // Check if the game is over
+              if (winner !== null) {
+                // Display the winner or tie message
+                var status = document.getElementById('status');
+                if (winner === 'T') {
+                  status.textContent ="It's a tie!";
+                } else {
+                  status.textContent = "Winner: " + winner;
+                }
+                
+                // Disable all the cards
+                var cards = document.getElementsByClassName('card');
+                for (var i = 0; i < cards.length; i++) {
+                  cards[i].removeEventListener('click', cardClicked);
+                }
+              }
+            }, 1000);
+            break;
           }
-        }, 1000);
-      } 
+          case 2: {
+              console.log("2");
+            // Switch to the Computer
+            player = 'O';
+            //Status of the player
+            var status = document.getElementById('status');
+            status.textContent = "Computer O's turn";
+            // Set delay for fun
+            setTimeout(function() {
+              
+                // Function to check if a player has a winning move
+                function hasWinningMove(player) {
+                  // Check for horizontal winning moves
+                  for (var row = 0; row < 3; row++) {
+                    if (
+                      board[row][0] === player &&
+                      board[row][1] === player &&
+                      board[row][2] === ''
+                    ) {
+                      return [row, 2]; // Winning move in the current row
+                    }
+                    if (
+                      board[row][0] === player &&
+                      board[row][1] === '' &&
+                      board[row][2] === player
+                    ) {
+                      return [row, 1]; // Winning move in the current row
+                    }
+                    if (
+                      board[row][0] === '' &&
+                      board[row][1] === player &&
+                      board[row][2] === player
+                    ) {
+                      return [row, 0]; // Winning move in the current row
+                    }
+                  }
+              
+                  // Check for vertical winning moves
+                  for (var col = 0; col < 3; col++) {
+                    if (
+                      board[0][col] === player &&
+                      board[1][col] === player &&
+                      board[2][col] === ''
+                    ) {
+                      return [2, col]; // Winning move in the current column
+                    }
+                    if (
+                      board[0][col] === player &&
+                      board[1][col] === '' &&
+                      board[2][col] === player
+                    ) {
+                      return [1, col]; // Winning move in the current column
+                    }
+                    if (
+                      board[0][col] === '' &&
+                      board[1][col] === player &&
+                      board[2][col] === player
+                    ) {
+                      return [0, col]; // Winning move in the current column
+                    }
+                  }
+              
+                  // Check for diagonal winning moves
+                  if (
+                    board[0][0] === player &&
+                    board[1][1] === player &&
+                    board[2][2] === ''
+                  ) {
+                    return [2, 2]; // Winning move in the main diagonal
+                  }
+                  if (
+                    board[0][0] === player &&
+                    board[1][1] === '' &&
+                    board[2][2] === player
+                  ) {
+                    return [1, 1]; // Winning move in the main diagonal
+                  }
+                  if (
+                    board[0][0] === '' &&
+                    board[1][1] === player &&
+                    board[2][2] === player
+                  ) {
+                    return [0, 0]; // Winning move in the main diagonal
+                  }
+                  if (
+                    board[0][2] === player &&
+                    board[1][1] === player &&
+                    board[2][0] === ''
+                  ) {
+                    return [2, 0]; // Winning move in the opposite diagonal
+                  }
+                  if (
+                    board[0][2] === player &&
+                    board[1][1] === '' &&
+                    board[2][0] === player
+                  ) {
+                    return [1, 1]; // Winning move in the opposite diagonal
+                  }
+                  if (
+                    board[0][2] === '' &&
+                    board[1][1] === player &&
+                    board[2][0] === player
+                  ) {
+                    return [0, 2]; // Winning move in the opposite diagonal
+                  }
+              
+                  return null; // No winning move found
+                }
+              
+                // Check if there is a winning move for the computer
+                var computerMove = hasWinningMove('O');
+                if (computerMove) {
+                  board[computerMove[0]][computerMove[1]] = 'O';
+                } 
+                else {
+                  // Check if there is a winning move for the player (to block)
+                  var playerMove = hasWinningMove('X');
+                  if (playerMove) {
+                    board[playerMove[0]][playerMove[1]] = 'O';
+                  } 
+                  else {
+                    // No winning moves found, select a random spot
+                    // Make the computer's move
+                    var openSpots = [];
+                    for (var i = 0; i < 3; i++) {
+                      for (var j = 0; j < 3; j++) {
+                        if (board[i][j] === '') {
+                          openSpots.push({ row: i, col: j });
+                        }
+                      }
+                    }
+                    computerMove = openSpots[Math.floor(Math.random() * openSpots.length)];
+                    board[computerMove.row][computerMove.col] = 'O';
+                  }
+                }
+              
+                // Continue with the remaining game logic
+                // ...
+              
+              // Switch back to the player
+              player = 'X';
+              //Status of the player
+              var status = document.getElementById('status');
+              status.textContent = "Player X's turn"; 
+              running=false;
+
+              // Check for a winner or a tie
+              checkWinner();
+              
+              // Draw the board
+              drawBoard();
+              
+              // Check if the game is over
+              if (winner !== null) {
+                // Display the winner or tie message
+                var status = document.getElementById('status');
+                if (winner === 'T') {
+                  status.textContent ="It's a tie!";
+                } else {
+                  status.textContent = "Winner: " + winner;
+                }
+                
+                // Disable all the cards
+                var cards = document.getElementsByClassName('card');
+                for (var i = 0; i < cards.length; i++) {
+                  cards[i].removeEventListener('click', cardClicked);
+                }
+              }
+            }, 1000);
+            break;
+          }
+          case 3: {
+            // Switch to the Computer
+            player = 'O';
+            //Status of the player
+            var status = document.getElementById('status');
+            status.textContent = "Computer O's turn";
+            // Set delay for fun
+            setTimeout(function() {
+              var openSpots = [];
+              for (var i = 0; i < 3; i++) {
+                for (var j = 0; j < 3; j++) {
+                  if (board[i][j] === '') {
+                    openSpots.push({ row: i, col: j });
+                  }
+                }
+              }
+              if(openSpots.length==7) {
+                if(board[0][0] === 'O' && board[0][1] === 'X' || board[0][0] === 'O' && board[1][0] === 'X') {
+                    board[2][2] = 'O';
+                } 
+                else if(board[0][2] === 'O' && board[0][1] === 'X' || board[0][2] === 'O' && board[1][2] === 'X') {
+                    board[2][0] = 'O';
+                } 
+                else if(board[2][0] === 'O' && board[1][0] === 'X' || board[2][0] === 'O' && board[2][1] === 'X') {
+                    board[0][2] = 'O';
+                } 
+                else if(board[2][2] === 'O' && board[2][1] === 'X' || board[2][2] === 'O' && board[1][2] === 'X') {
+                    board[0][0] = 'O';
+                }
+                else {
+                  if(board[0][0] === 'O') {
+                    if(board[2][2]=== '')
+                      board[2][2] = 'O';
+                    else
+                      board[0][2] = 'O';
+                  }
+                  else if(board[0][2] === 'O') {
+                    if(board[2][0]=== '')
+                      board[2][0]= 'O';
+                    else
+                      board[2][2] = 'O';
+                  }
+                  else if(board[2][0] === 'O'){
+                    if(board[0][2]=== '')
+                      board[0][2]= 'O';
+                    else
+                      board[2][2] = 'O';
+                  }
+                  else if(board[2][2] === 'O') {
+                    if(board[0][0]=== '')
+                      board[0][0]= 'O';
+                    else
+                      board[0][2] = 'O';
+                  }
+                }
+              }
+              else {
+                // Function to check if a player has a winning move
+                function hasWinningMove(player) {
+                  // Check for horizontal winning moves
+                  for (var row = 0; row < 3; row++) {
+                    if (
+                      board[row][0] === player &&
+                      board[row][1] === player &&
+                      board[row][2] === ''
+                    ) {
+                      return [row, 2]; // Winning move in the current row
+                    }
+                    if (
+                      board[row][0] === player &&
+                      board[row][1] === '' &&
+                      board[row][2] === player
+                    ) {
+                      return [row, 1]; // Winning move in the current row
+                    }
+                    if (
+                      board[row][0] === '' &&
+                      board[row][1] === player &&
+                      board[row][2] === player
+                    ) {
+                      return [row, 0]; // Winning move in the current row
+                    }
+                  }
+              
+                  // Check for vertical winning moves
+                  for (var col = 0; col < 3; col++) {
+                    if (
+                      board[0][col] === player &&
+                      board[1][col] === player &&
+                      board[2][col] === ''
+                    ) {
+                      return [2, col]; // Winning move in the current column
+                    }
+                    if (
+                      board[0][col] === player &&
+                      board[1][col] === '' &&
+                      board[2][col] === player
+                    ) {
+                      return [1, col]; // Winning move in the current column
+                    }
+                    if (
+                      board[0][col] === '' &&
+                      board[1][col] === player &&
+                      board[2][col] === player
+                    ) {
+                      return [0, col]; // Winning move in the current column
+                    }
+                  }
+              
+                  // Check for diagonal winning moves
+                  if (
+                    board[0][0] === player &&
+                    board[1][1] === player &&
+                    board[2][2] === ''
+                  ) {
+                    return [2, 2]; // Winning move in the main diagonal
+                  }
+                  if (
+                    board[0][0] === player &&
+                    board[1][1] === '' &&
+                    board[2][2] === player
+                  ) {
+                    return [1, 1]; // Winning move in the main diagonal
+                  }
+                  if (
+                    board[0][0] === '' &&
+                    board[1][1] === player &&
+                    board[2][2] === player
+                  ) {
+                    return [0, 0]; // Winning move in the main diagonal
+                  }
+                  if (
+                    board[0][2] === player &&
+                    board[1][1] === player &&
+                    board[2][0] === ''
+                  ) {
+                    return [2, 0]; // Winning move in the opposite diagonal
+                  }
+                  if (
+                    board[0][2] === player &&
+                    board[1][1] === '' &&
+                    board[2][0] === player
+                  ) {
+                    return [1, 1]; // Winning move in the opposite diagonal
+                  }
+                  if (
+                    board[0][2] === '' &&
+                    board[1][1] === player &&
+                    board[2][0] === player
+                  ) {
+                    return [0, 2]; // Winning move in the opposite diagonal
+                  }
+              
+                  return null; // No winning move found
+                }
+              
+                // Check if there is a winning move for the computer
+                var computerMove = hasWinningMove('O');
+                if (computerMove) {
+                  board[computerMove[0]][computerMove[1]] = 'O';
+                } 
+                else {
+                  // Check if there is a winning move for the player (to block)
+                  var playerMove = hasWinningMove('X');
+                  if (playerMove) {
+                    board[playerMove[0]][playerMove[1]] = 'O';
+                  } 
+                  else {
+                    var openSpots = [];
+              for (var i = 0; i < 3; i++) {
+                for (var j = 0; j < 3; j++) {
+                  if (board[i][j] === '') {
+                    openSpots.push({ row: i, col: j });
+                  }
+                }
+              }
+              if(openSpots.length==5) {
+                if(board[0][0] === 'O' && board[0][2] === 'O' && board[2][0] === '') {
+                    board[2][0] = 'O';
+                } 
+                else if(board[0][0] === 'O' && board[0][2] === 'O' && board[2][2] === '') {
+                  board[2][2] = 'O';
+                } 
+                else if(board[0][0] === 'O' && board[2][0] === 'O' && board[0][2] === '') {
+                  board[0][2] = 'O';
+                } 
+                else if(board[0][0] === 'O' && board[2][0] === 'O' && board[2][2] === '') {
+                  board[2][2] = 'O';
+                } 
+                else if(board[0][2] === 'O' && board[2][2] === 'O' && board[2][0] === '') {
+                  board[2][0] = 'O';
+                }
+                else if(board[0][2] === 'O' && board[2][2] === 'O' && board[0][0] === '') {
+                  board[0][0] = 'O';
+                }  
+                else if(board[2][2] === 'O' && board[2][0] === 'O' && board[0][2] === '') {
+                  board[0][2] = 'O';
+                } 
+                else if(board[2][2] === 'O' && board[2][0] === 'O' && board[0][0] === '') {
+                  board[0][0] = 'O';
+                } 
+              } 
+              else {
+                    // No winning moves found, select a random spot
+                    // Make the computer's move
+                    var openSpots = [];
+                    for (var i = 0; i < 3; i++) {
+                      for (var j = 0; j < 3; j++) {
+                        if (board[i][j] === '') {
+                          openSpots.push({ row: i, col: j });
+                        }
+                      }
+                    }
+                    computerMove = openSpots[Math.floor(Math.random() * openSpots.length)];
+                    board[computerMove.row][computerMove.col] = 'O';
+                  }
+                  }
+                }
+              }
+                // Continue with the remaining game logic
+                // ...
+              
+              // Switch back to the player
+              player = 'X';
+              //Status of the player
+              var status = document.getElementById('status');
+              status.textContent = "Player X's turn"; 
+              running=false;
+
+              // Check for a winner or a tie
+              checkWinner();
+              
+              // Draw the board
+              drawBoard();
+              
+              // Check if the game is over
+              if (winner !== null) {
+                // Display the winner or tie message
+                var status = document.getElementById('status');
+                if (winner === 'T') {
+                  status.textContent ="It's a tie!";
+                } else {
+                  status.textContent = "Winner: " + winner;
+                }
+                
+                // Disable all the cards
+                var cards = document.getElementsByClassName('card');
+                for (var i = 0; i < cards.length; i++) {
+                  cards[i].removeEventListener('click', cardClicked);
+                }
+              }
+            }, 1000);
+            break;
+          }
+        }
+      }
       else {
         player = 'X';
       }
     }
   }
 }
+
+    
+    // Initialize the cards
+    var cards = document.getElementsByClassName('card');
+    for (var i = 0; i < cards.length; i++) {
+    cards[i].addEventListener('click', cardClicked);
+    }
+    
+    // Draw the board
+    drawBoard();
+ 
+// Define the function to reset the game
+function resetGame() {
+    // Initialize the board
+    board = [  ['', '', ''],
+              ['', '', ''],
+              ['', '', '']
+    ];
+    
+    // Initialize the player
+    player = 'X';
+    // Initialize the winner
+    winner = null;
+    running=false;
+    for (var row = 0; row < 3; row++) {
+        for (var col = 0; col < 3; col++) {
+            var card = document.getElementById('card' + row + col);
+            card.textContent = board[row][col];
+            card.classList.remove('X');
+            card.classList.remove('O');
+            card.classList.remove('Tie');
+            card.classList.remove('W');
+            card.classList.remove('zoom-in-out-box')
+        }
+    }
+    winningCards = null;
+    // Draw the board
+    drawBoard();
+  
+    // Enable all the cards
+    var cards = document.getElementsByClassName('card');
+    for (var i = 0; i < cards.length; i++) {
+      cards[i].addEventListener('click', cardClicked);
+    }
+
+    if(Gameplay==3) {
+      // Array of numbers
+      const numbers = [0, 2];
+      // Randomly choose a number from the array
+      const randomIndex = Math.floor(Math.random() * numbers.length);
+      const randomNumber1 = numbers[randomIndex];
+      const randomIndex2 = Math.floor(Math.random() * numbers.length);
+      const randomNumber2 = numbers[randomIndex2];
+      board[randomNumber1][randomNumber2] = 'O';
+      console.log("Pc start !")
+      drawBoard();
+    }
+
+    // Clear the status message
+    var status = document.getElementById('status');
+    status.textContent = "Player X's turn";
+  }
+  
+  // Initialize the reset button
+  var resetButton = document.getElementById('reset-button');
+  resetButton.addEventListener('click', resetGame);
+  
+        
 
 
 // // Define the function to handle a card click
@@ -348,58 +859,3 @@ function cardClicked() {
 //   }
   
   
-    
-    // Initialize the cards
-    var cards = document.getElementsByClassName('card');
-    for (var i = 0; i < cards.length; i++) {
-    cards[i].addEventListener('click', cardClicked);
-    }
-    
-    // Draw the board
-    drawBoard();
- 
-// Define the function to reset the game
-function resetGame() {
-    // Initialize the board
-    board = [  ['', '', ''],
-              ['', '', ''],
-              ['', '', '']
-    ];
-    
-    // Initialize the player
-    player = 'X';
-    // Initialize the winner
-    winner = null;
-    running=false;
-    for (var row = 0; row < 3; row++) {
-        for (var col = 0; col < 3; col++) {
-            var card = document.getElementById('card' + row + col);
-            card.textContent = board[row][col];
-            card.classList.remove('X');
-            card.classList.remove('O');
-            card.classList.remove('Tie');
-            card.classList.remove('W');
-            card.classList.remove('zoom-in-out-box')
-        }
-    }
-    winningCards = null;
-    // Draw the board
-    drawBoard();
-  
-    // Enable all the cards
-    var cards = document.getElementsByClassName('card');
-    for (var i = 0; i < cards.length; i++) {
-      cards[i].addEventListener('click', cardClicked);
-    }
-  
-    // Clear the status message
-    var status = document.getElementById('status');
-    status.textContent = "Player X's turn";
-  }
-  
-  // Initialize the reset button
-  var resetButton = document.getElementById('reset-button');
-  resetButton.addEventListener('click', resetGame);
-  
-        
-
