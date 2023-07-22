@@ -9,12 +9,28 @@ body {
 }
 img {
   position: absolute;
-  top: 0;
+  top: 5%;
   left: 50%;
-  /* transform: translate(-50%, -30%); */
   transform: translateX(-50%); 
   padding-bottom: 15%;
 }
+@media screen and (max-width: 1100px) {
+  img {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%); 
+    padding-bottom: 15%;
+  }
+}
+/* Media query targeting screens with a maximum width of 600 pixels or less */
+@media screen and (max-width: 400px) {
+  img {
+    max-width: 90%;
+    max-height: 60%;
+  }
+}
+
 
 html,
 body {
@@ -376,10 +392,3 @@ p {
   text-decoration: underline;
 }
 
-/* Media query targeting screens with a maximum width of 600 pixels or less */
-@media screen and (max-width: 400px) {
-  img {
-    max-width: 90%;
-    max-height: 60%;
-  }
-}
