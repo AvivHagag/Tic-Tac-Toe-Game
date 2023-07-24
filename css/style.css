@@ -637,7 +637,7 @@ body {
 }
 @media screen and (max-width: 650px) {
   #board {
-    margin: 10% auto;
+    margin: 20% auto;
   }
 }
 /* @media screen and (max-width: 850px) {
