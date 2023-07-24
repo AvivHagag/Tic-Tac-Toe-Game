@@ -54,7 +54,7 @@ body {
     background-color: black;
     display: flex;
     width: 400px;
-    margin: auto;
+    margin: 3% auto;
     flex-direction: column;
     align-items: center;
   }
@@ -75,7 +75,7 @@ body {
     border: 2px solid white;
     transition: transform 0.3s;
   }
-  
+
   .card.X {
     color: white;
     background-color: rgb(255, 32, 32);
@@ -323,13 +323,16 @@ body {
   size: 400px;
   justify-content: center;
   display: flex; 
-}
+  flex-direction: row;
+} 
+
 .level {
   cursor: pointer;
   position: relative;
   display: inline-block;
   border-radius: 4px;
   height: 80px;
+  width: 20%;
   font-size: 20px;
   margin: 4px;
   background-color: black;
@@ -429,18 +432,19 @@ body {
   transform-origin: right;
 }
 
-.levelChoosen {
+ .levelChoosen {
   cursor: pointer;
   position: relative;
   display: inline-block;
   border-radius: 4px;
   height: 80px;
+  width: 20%;
   font-size: 20px;
   margin: 4px;
   background-color: rgb(113, 113, 113);
   border: 1px black solid;
   color: black;
-}
+} 
 .levelChoosen:hover {
   color:black;
   text-shadow: 0 0 4px white;
@@ -546,6 +550,7 @@ body {
   cursor: pointer;
   border-radius: 4px;
   height: 80px;
+  width: 20%;
   font-size: 20px;
   margin: 4px 12px;
   background-color: black;
@@ -556,6 +561,7 @@ body {
   cursor: pointer;
   border-radius: 4px;
   height: 80px;
+  width: 20%;
   font-size: 24px;
   font-family: sans-serif;
   text-decoration: none;
@@ -598,3 +604,48 @@ body {
     transform: translate3d(4px, 0, 0);
   }
 }
+
+@media screen and (max-width: 1000px) {
+  #Choose {
+    margin: 10% auto auto 0%;
+    justify-content: center;
+    display: flex; 
+    flex-direction: column; /* Change to a column layout for larger screens */
+  }
+  .level { 
+    width: 75%;
+    margin: 1% auto;
+  }
+  .levelChoosen {
+    width: 75%;
+    margin: 1% auto;
+  }
+  .StartBtn {
+    width: 75%;
+    margin: 1% auto;
+  }
+  .StartBtn2 {
+    width: 75%;
+    margin: 1% auto;
+  }
+  #board {
+    margin: 5% auto;
+    width: 60%;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media screen and (max-width: 650px) {
+  #board {
+    margin: 10% auto;
+  }
+}
+/* @media screen and (max-width: 850px) {
+  #board {
+    margin: 5% auto;
+    width: 60%;
+    height: 600px;
+    flex-direction: column;
+    align-items: center;
+  }
+}  */
