@@ -204,7 +204,7 @@ function cardClicked() {
       // Display the winner or tie message
       var status = document.getElementById('status');
       if (winner === 'T') {
-        status.textContent ="It's a tie!";
+        status.textContent ="It's a draw!";
       } else {
         status.textContent = "Winner: " + winner;
       }
@@ -257,7 +257,7 @@ function cardClicked() {
                 // Display the winner or tie message
                 var status = document.getElementById('status');
                 if (winner === 'T') {
-                  status.textContent ="It's a tie!";
+                  status.textContent ="It's a draw!";
                 } else {
                   status.textContent = "Winner: " + winner;
                 }
@@ -428,7 +428,7 @@ function cardClicked() {
                 // Display the winner or tie message
                 var status = document.getElementById('status');
                 if (winner === 'T') {
-                  status.textContent ="It's a tie!";
+                  status.textContent ="It's a draw!";
                 } else {
                   status.textContent = "Winner: " + winner;
                 }
@@ -682,7 +682,7 @@ function cardClicked() {
                 // Display the winner or tie message
                 var status = document.getElementById('status');
                 if (winner === 'T') {
-                  status.textContent ="It's a tie!";
+                  status.textContent ="It's a draw!";
                 } else {
                   status.textContent = "Winner: " + winner;
                 }
