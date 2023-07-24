@@ -607,7 +607,7 @@ body {
 
 @media screen and (max-width: 1000px) {
   #Choose {
-    margin: 10% auto auto 0%;
+    margin: 20% auto auto 0%;
     justify-content: center;
     display: flex; 
     flex-direction: column; /* Change to a column layout for larger screens */
