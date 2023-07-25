@@ -45,7 +45,7 @@ h1 {
   }
   
 .card {
-    margin: 20% auto;
+    margin: 15% auto;
     background: #fff;
     /* border-radius: 4px; */
     box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.5);
@@ -55,6 +55,7 @@ h1 {
     border-radius: 25px;
     position: relative;
   }
+
   .card h2 {
     margin: 0;
     padding: 0 1rem;
@@ -141,16 +142,140 @@ h1 {
     margin-right: 5px;
   }
  
-  /* button {
-    border: none;
-    background: none;
-    font-size: 24px;
-    color: #8bc34a;
-    cursor: pointer;
-    transition: 0.5s;
-    &:hover {
-      color: #4caf50;
-      transform: rotate(22deg);
+  @media screen and (max-width: 650px) {
+    .card {
+        margin: 25% auto;
     }
-  } */
+  }
+
+  .buttons {
+    margin: -10% auto;
+    size: 200px;
+    width: 400px;
+    justify-content: center;
+    display: flex; 
+  }
+
+  .BoardBtn {
+    position: relative;
+    display: inline-block;
+    margin: 4px 20px;
+    font-size: 20px;
+    padding: 10px 10px;
+    background-color: black;
+    border: 1px white solid;
+    color: white;
+  }
+  .BoardBtn:hover {
+    color:white;
+    text-shadow: 0 0 7px white;
+    letter-spacing: .12em;
+  }
+  .BoardBtn span {
+    position: absolute;
+    display: block;
+    background-color: #ffffff;
+  }
+  .BoardBtn span:nth-child(1) {
+    left: 0;
+    top: 0;
+    width: 50.5%;
+    height: 2.5px;
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: transform .5s;
+  }
+  .BoardBtn:hover span:nth-child(1) {
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+  .BoardBtn span:nth-child(2) {
+    right: 0;
+    top: 0;
+    width: 50.5%;
+    height: 2.5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s;
+  }
+  .BoardBtn:hover span:nth-child(2) {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  .BoardBtn span:nth-child(3) {
+    right: 0;
+    top: 0;
+    width: 2.5px;
+    height: 100%;
+    transform-origin: bottom;
+    transform: scaleY(0);
+    transition: transform .5s;
+    transition-delay: .2s;
+  }
+  .BoardBtn:hover span:nth-child(3) {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+  .BoardBtn span:nth-child(4) {
+    left: 0;
+    top: 0;
+    width: 2.5px;
+    height: 100%;
+    transform-origin: bottom;
+    transform: scaleY(0);
+    transition: transform .5s;
+    transition-delay: .2s;
+  }
+  .BoardBtn:hover span:nth-child(4) {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+  .BoardBtn span:nth-child(5) {
+    left: 0;
+    bottom: 0;
+    width: 50.5%;
+    height: 2.5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s;
+    transition-delay: .3s;
+  }
+  .BoardBtn:hover span:nth-child(5) {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  .BoardBtn span:nth-child(6) {
+    right: 0;
+    bottom: 0;
+    width: 50.5%;
+    height: 2.5px;
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: transform .5s;
+    transition-delay: .3s;
+  }
+  .BoardBtn:hover span:nth-child(6) {
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+  
+  .zoom-in-out-box {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    background: #ffffff;
+    animation: zoom-in-zoom-out 2s ease infinite;
+  }
+  
+  @keyframes zoom-in-zoom-out {
+    10% {
+      transform: scale(0.9, 0.9);
+    }
+    50% {
+      transform: scale(1.1, 1.1);
+    }
+    100% {
+      transform: scale(0.9, 0.9);
+    }
+  }
   
