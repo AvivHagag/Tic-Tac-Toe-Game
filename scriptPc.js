@@ -10,11 +10,13 @@ var player = 'X';
 
 let Gameplay=-1;
 let ChooseLevel=false;
+let BtnChange= false;
 const button1 = document.getElementById("level1");
 const button2 = document.getElementById("level2");
 const button3 = document.getElementById("level3");
 const StartBtn = document.getElementById("StartBtn");
-const BackToMenu = document.getElementById("back-button")
+const BackBtn = document.getElementById("back-button");
+BackBtn.style.display="block";
 button1.onclick = function() {
   Gameplay=1;
   ChooseLevel=true;
@@ -59,9 +61,13 @@ button3.onclick = function() {
 };
 StartBtn.onclick = function() {
   if(ChooseLevel==false) {return;}
+  BtnChange=true;
   const Choose = document.getElementById("Choose");
-  const container = document.getElementById("container");
+  const container = document.getElementById("InsideContainer");
   const StartbtnDiv = document.getElementById("playGame");
+  const ResetBtn = document.getElementById("reset-button");
+  BackBtn.innerHTML="Choose Level<span></span><span></span><span></span><span></span><span></span><span></span>";
+  ResetBtn.style.display="block";
   Choose.style.display = "none";
   StartbtnDiv.style.display = "none";
   container.style.display= "block";
@@ -78,9 +84,14 @@ StartBtn.onclick = function() {
     drawBoard();
   }
 }
-BackToMenu.onclick = function() {
+BackBtn.onclick = function() {
+  if(BtnChange==true) {
   resetGame();
   window.location.reload();
+  }
+  else {
+    window.location.href="index.html";
+  }
 }
 // Initialize the winner
 var winner = null;
@@ -772,90 +783,3 @@ function resetGame() {
   resetButton.addEventListener('click', resetGame);
   
         
-
-
-// // Define the function to handle a card click
-// function cardClicked() {
-//     // Get the row and column of the clicked card
-//     var row = this.getAttribute('data-row');
-//     var col = this.getAttribute('data-col');
-//     //Status of the player
-//     var status = document.getElementById('status');
-
-//     // Check if the card has already been played
-//     if (board[row][col] !== '') {
-//       return;
-//     }
-  
-//     // Update the board with the player's move
-//     board[row][col] = player;
-//     // Check for a winner or a tie
-//     checkWinner();
-  
-//     // Draw the board
-//     drawBoard();
-  
-//     // Check if the game is over
-//     if (winner !== null) {
-//       // Display the winner or tie message
-//       var status = document.getElementById('status');
-//       if (winner === 'T') {
-//         status.textContent ="It's a tie!";
-//       } else {
-//         status.textContent = "Winner: " + winner;
-//       }
-      
-//       // Disable all the cards
-//       var cards = document.getElementsByClassName('card');
-//       for (var i = 0; i < cards.length; i++) {
-//         cards[i].removeEventListener('click', cardClicked);
-//       }
-//     } else {
-//       // Switch to the other player
-//       if (player === 'X') {
-//         player = 'O';
-//         } else {
-//         player = 'X';
-//         }
-  
-//       // Make the computer's move
-//       var openSpots = [];
-//       for (var i = 0; i < 3; i++) {
-//         for (var j = 0; j < 3; j++) {
-//           if (board[i][j] === '') {
-//             openSpots.push({ row: i, col: j });
-//           }
-//         }
-//       }
-//       var computerMove = openSpots[Math.floor(Math.random() * openSpots.length)];
-//       board[computerMove.row][computerMove.col] = 'O';
-  
-//       // Check for a winner or a tie
-//       checkWinner();
-  
-//       // Draw the board
-//       drawBoard();
-  
-//       // Check if the game is over
-//       if (winner !== null) {
-//         // Display the winner or tie message
-//         var status = document.getElementById('status');
-//         if (winner === 'T') {
-//           status.textContent ="It's a tie!";
-//         } else {
-//           status.textContent = "Winner: " + winner;
-//         }
-        
-//         // Disable all the cards
-//         var cards = document.getElementsByClassName('card');
-//         for (var i = 0; i < cards.length; i++) {
-//           cards[i].removeEventListener('click', cardClicked);
-//         }
-//       } else {
-//         // Switch back to the player
-//         player = 'X';
-//       }
-//     }
-//   }
-  
-  

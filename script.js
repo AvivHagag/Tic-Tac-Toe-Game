@@ -6,7 +6,11 @@ var board = [  ['', '', ''],
 
 // Initialize the player
 var player = 'X';
-
+const BackToMenu = document.getElementById("back-button")
+BackToMenu.onclick = function() {
+  resetGame();
+  window.location.href="index.html";
+}
 // Initialize the winner
 var winner = null;
 // Initialize the cards that makes the win

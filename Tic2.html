@@ -45,7 +45,8 @@
     <div id="playGame">
       <button id="StartBtn" class="StartBtn">Start Play </button>
     </div>
-    <div id="container" style="display:none">
+    <div id="container">
+      <div id="InsideContainer" style="display:none">
       <div id="board">
         <div class="row">
           <div id="card00" class="card" data-row="0" data-col="0"></div>
@@ -64,8 +65,9 @@
         </div>
       </div>
       <div id="status">Player X's turn</div>
+    </div>
       <div class="buttons">
-    <button id="reset-button" class="BoardBtn">Reset<span></span><span></span><span></span><span></span><span></span><span></span></button>
+    <button id="reset-button" class="BoardBtn" style="display:none">Reset<span></span><span></span><span></span><span></span><span></span><span></span></button>
     <button id="back-button" class="BoardBtn">Back To Menu<span></span><span></span><span></span><span></span><span></span><span></span></button>
       </div>
     <script src="scriptPc.js"></script>
