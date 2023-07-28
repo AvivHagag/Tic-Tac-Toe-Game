@@ -112,6 +112,17 @@ body {
     background-color: black;
     display: inline;
   }
+  #ModeText {
+    margin: 0% auto;
+    background-color: black;
+    display: inline-flex;
+  }
+
+  @media screen and (max-width: 1200px) {
+    #ModeText {
+      margin: 2% auto;
+    }
+  }
   .buttons {
     margin:2% auto;  
     size: 200px;
@@ -244,7 +255,7 @@ body {
   }
   
 #Choose {
-  margin:5% auto;  
+  margin:2% auto;  
   size: 400px;
   justify-content: center;
   display: flex; 
@@ -532,10 +543,12 @@ body {
 
 @media screen and (max-width: 1000px) {
   #Choose {
-    margin: 20% auto auto 0%;
     justify-content: center;
     display: flex; 
     flex-direction: column; /* Change to a column layout for larger screens */
+  }
+  #ModeText {
+    margin: 5% auto auto;
   }
   .level { 
     width: 75%;
@@ -562,7 +575,215 @@ body {
 }
 @media screen and (max-width: 650px) {
   #board {
-    margin: 20% auto;
+    margin: 10% auto;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+  #ModeText {
+  margin: 15% 0% 0%;
+  }
+}
+@media screen and (max-width: 480px) {
+  #board {
+    margin: 15% auto;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
   }
 }
 
+/* dark mode  */
+/* Add this CSS for the toggle switch */
+/* Styles for the toggle switch */
+.mode-toggle {
+  /* display: flex;
+  align-items: center;
+  margin-right: 15px;
+  font-size: inherit; Set the font size to inherit from h1 */
+  position: absolute;
+  top: 30%;
+  right: 2%;
+}
+
+.mode-toggle input[type="checkbox"] {
+  display: none;
+}
+
+.mode-toggle label {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+}
+
+.mode-toggle .circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mode-toggle .fa-sun,
+.mode-toggle .fa-moon {
+  font-size: 20px;
+}
+
+.mode-toggle .fa-moon {
+  display: none;
+}
+.mode-toggle .fa-sun {
+  color: black;
+}
+
+.mode-toggle input[type="checkbox"]:checked + label .fa-sun {
+  display: none;
+}
+
+.mode-toggle input[type="checkbox"]:checked + label .fa-moon {
+  display: inline-block;
+}
+
+.whiteBtn {
+  position: relative;
+  display: inline-block;
+  margin: 4px 20px;
+  font-size: 20px;
+  padding: 10px 10px;
+  background-color: white;
+  border: 1px black solid;
+  color: black;
+}
+.whiteBtn:hover {
+  color:black;
+  text-shadow: 0 0 7px black;
+  letter-spacing: .12em;
+}
+.whiteBtn span {
+  position: absolute;
+  display: block;
+  background-color: #000000;
+}
+
+.levelWhite {
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  border-radius: 4px;
+  height: 80px;
+  width: 20%;
+  font-size: 20px;
+  margin: 4px;
+  background-color: white;
+  border: 1px black solid;
+  color: black;
+}
+.levelWhite:hover {
+  color:black;
+  text-shadow: 0 0 7px black;
+  letter-spacing: .12em;
+}
+.levelWhite span {
+  position: absolute;
+  display: block;
+  background-color: #000;
+}
+.StartBtnWhite {
+  cursor: pointer;
+  border-radius: 4px;
+  height: 80px;
+  width: 20%;
+  font-size: 20px;
+  margin: 4px 12px;
+  background-color: white;
+  border: 1px black solid;
+  color: black;
+}
+.StartBtn2White {
+  cursor: pointer;
+  border-radius: 4px;
+  height: 80px;
+  width: 20%;
+  font-size: 24px;
+  font-family: sans-serif;
+  text-decoration: none;
+  letter-spacing: 2px;
+  margin: 4px 12px;
+  background-color: #38E54D;
+  border: 2px white solid;
+  color: white;
+}
+.StartBtn2White:after {
+  content: '\23F5';
+}
+.StartBtn2White {
+  animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both infinite;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.StartBtn2White:hover {
+  letter-spacing: .20em;
+}
+
+.levelChoosenWhite {
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  border-radius: 4px;
+  height: 80px;
+  width: 20%;
+  font-size: 20px;
+  margin: 4px;
+  background-color: rgb(113, 113, 113);
+  border: 1px white solid;
+  color: white;
+} 
+
+.boardWhite {
+  background-color: white;
+  display: flex;
+  width: 400px;
+  margin: 3% auto;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cardWhite {
+  width: 100px;
+  height: 100px;
+  font-size: 60px;
+  text-align: center;
+  line-height: 100px;
+  margin: 10px;
+  cursor: pointer;
+  background-color: transparent;
+  border: 2px solid black;
+  transition: transform 0.3s;
+}
+
+/* .cardWhite.X {
+  color: white;
+  background-color: rgb(255, 32, 32);
+  border-color: black;
+}
+
+.cardWhite.O {
+  color: white;
+  background-color: rgb(13, 69, 255);
+  border-color: black;
+}
+
+.cardWhite.W {
+  color: white;
+  background-color: goldenrod;
+  border-width: 0px;
+}
+.cardWhite.Tie {
+  color: white;
+  background-color: silver;
+  border-width: 0px;
+} */

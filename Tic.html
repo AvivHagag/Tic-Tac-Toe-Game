@@ -6,13 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic Tac Toe</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   </head>
   <header>
-      <!-- Title -->
-      <nav class="navbar navbar-light bg-light">
-        <h1 class="navbar-brand" onclick="window.location='index.html'">
+       <!-- Title -->
+       <nav class="navbar navbar-light bg-light">
+        <h1 id="navbar-title" class="navbar-brand" onclick="window.location='index.html'">
           Tic Tac Toe
         </h1>
+        <div class="mode-toggle">
+          <input type="checkbox" id="mode-switch">
+          <label for="mode-switch">
+            <div class="circle">
+            <i class="fa fa-moon"></i>
+            <i class="fa fa-sun"></i>
+          </div>
+          </label>
+        </div>
       </nav>
   </header>
   <body>
@@ -35,9 +45,9 @@
         </div>
       </div>
       <div id="status">
-        <p>
+        <!-- <p> -->
         Player X's turn
-      </p>
+      <!-- </p> -->
       </div>
       <div class="buttons">
         <button id="reset-button" class="BoardBtn">Reset<span></span><span></span><span></span><span></span><span></span><span></span></button>

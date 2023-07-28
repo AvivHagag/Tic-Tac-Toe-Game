@@ -1,4 +1,4 @@
-h1 {
+/* h1 {
     color: inherit;
     text-decoration: none;
     display: inline-block;
@@ -29,14 +29,48 @@ h1 {
     width: 100%;
     justify-content: center;
     text-align: center;
-  } 
-  
+  }  */
+/* Styles for h1 */
+h1 {
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  background:
+    linear-gradient(to right, rgba(48, 48, 48, 0.35), rgba(48, 48, 48, 0.35)),
+    linear-gradient(to right, rgb(209, 209, 209), rgb(128, 128, 128), rgb(64, 64, 64));
+  background-size: 100% 3px, 0 3px;
+  background-position: 100% 100%, 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 300ms;
+}
+
+h1:hover {
+  background-size: 0 3px, 100% 3px;
+}
+
+/* Styles for header (navbar) */
+header {
+  border-bottom: 3px dotted white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+}
+
+  canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
   body {
-    background: black;
     color: #EEEEEE;
     text-align: center;
     font-family: "Lato", sans-serif;
-    background: radial-gradient(ellipse at center, rgb(96, 96, 96) 0%, #303030 35%, #000000 100%);
     overflow: hidden;
   }
   html,
@@ -47,7 +81,6 @@ h1 {
 .card {
     margin: 15% auto;
     background: #fff;
-    /* border-radius: 4px; */
     box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.5);
     max-width: 400px;
     display: flex;
@@ -141,13 +174,10 @@ h1 {
     height: 30px;
     margin-right: 5px;
   }
- 
-  @media screen and (max-width: 650px) {
-    .card {
-        margin: 25% auto;
-    }
+  .icon:hover {
+    width: 32px;
+    height: 32px;
   }
-
   .buttons {
     margin: -10% auto;
     size: 200px;
@@ -279,3 +309,87 @@ h1 {
     }
   }
   
+/* dark mode  */
+/* Add this CSS for the toggle switch */
+/* Styles for the toggle switch */
+.mode-toggle {
+  /* display: flex;
+  align-items: center;
+  margin-right: 15px;
+  font-size: inherit; Set the font size to inherit from h1 */
+  position: absolute;
+  top: 30%;
+  right: 2%;
+}
+
+.mode-toggle input[type="checkbox"] {
+  display: none;
+}
+
+.mode-toggle label {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+}
+
+.mode-toggle .circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mode-toggle .fa-sun,
+.mode-toggle .fa-moon {
+  font-size: 20px;
+}
+
+.mode-toggle .fa-moon {
+  display: none;
+}
+.mode-toggle .fa-sun {
+  color: black;
+}
+
+.mode-toggle input[type="checkbox"]:checked + label .fa-sun {
+  display: none;
+}
+
+.mode-toggle input[type="checkbox"]:checked + label .fa-moon {
+  display: inline-block;
+}
+
+.whiteBtn {
+  position: relative;
+  display: inline-block;
+  margin: 4px 20px;
+  font-size: 20px;
+  padding: 10px 10px;
+  background-color: white;
+  border: 1px black solid;
+  color: black;
+}
+.whiteBtn:hover {
+  color:black;
+  text-shadow: 0 0 7px black;
+  letter-spacing: .12em;
+}
+.whiteBtn span {
+  position: absolute;
+  display: block;
+  background-color: #000000;
+}
+
+/* responsive */
+ 
+@media screen and (max-width: 650px) {
+  .card {
+      margin: 25% auto;
+  }
+  .mode-toggle {
+right: 5%;
+  }
+}

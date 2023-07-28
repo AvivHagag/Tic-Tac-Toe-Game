@@ -1,3 +1,104 @@
+// Dark Mode 
+const modeSwitch = document.getElementById("mode-switch");
+const circleColor = document.querySelector('.circle');
+let ChooseLevel=false;
+// Check for previously saved dark mode preference in localStorage
+const savedDarkMode = localStorage.getItem('darkMode');
+if (savedDarkMode === 'enabled') {
+  modeSwitch.checked = true;
+  toggleDarkMode();
+} else {
+  modeSwitch.checked = false;
+  toggleDarkMode();
+}
+
+modeSwitch.addEventListener("change", toggleDarkMode);
+
+if (!modeSwitch.checked) { 
+    circleColor.style.backgroundColor= 'white';
+    console.log("wwwwww")
+}
+
+function toggleDarkMode() {
+   const navbarTitle = document.getElementById("navbar-title");
+   const BackBtn = document.getElementById("back-button");
+   const ResetBtn = document.getElementById("reset-button");
+   const level1 = document.getElementById("level1");
+   const level2 = document.getElementById("level2");
+   const level3 = document.getElementById("level3");
+   const StartBtn = document.getElementById("StartBtn");
+   const Header = document.querySelector('header');
+   const body= document.querySelector('body');
+   const modeText= document.getElementById("ModeText");
+   const Status= document.getElementById("status");
+   const Board = document.getElementById("board");
+   if (modeSwitch.checked) {
+      console.log("whitemode")
+      if(ChooseLevel==true) {
+        StartBtn.classList.add('StartBtn2White');
+        StartBtn.classList.remove('StartBtn');
+        if(Gameplay==1) {
+          level1.classList.add('levelChoosenWhite');
+        }
+        if(Gameplay==2) {
+          level2.classList.add('levelChoosenWhite');
+        }
+        if(Gameplay==3) {
+          level3.classList.add('levelChoosenWhite');
+        }
+      }
+      body.style.backgroundImage= "url('css/img/1.jpg')";
+      circleColor.style.backgroundColor='black';
+      navbarTitle.style.color = "#000";
+      BackBtn.classList.add("whiteBtn");
+      ResetBtn.classList.add("whiteBtn");
+      level1.classList.add("levelWhite");
+      level2.classList.add("levelWhite");
+      level3.classList.add("levelWhite");
+      StartBtn.classList.add("StartBtnWhite");
+      Header.style.backgroundColor='white';
+      Header.style.borderBottom = '3px dotted black';
+      modeText.style.color='black';
+      Status.style.color='black';
+      modeText.style.backgroundColor='white';
+      Board.style.backgroundColor="white";
+      for (var row = 0; row < 3; row++) {
+        for (var col = 0; col < 3; col++) {
+          var card = document.getElementById('card' + row + col);
+          card.classList.add("cardWhite");
+        }
+      }
+      
+   }else {
+      navbarTitle.style.color = "#eee";
+      BackBtn.classList.remove("whiteBtn");
+      ResetBtn.classList.remove("whiteBtn");
+      level1.classList.remove("levelWhite");
+      level2.classList.remove("levelWhite");
+      level3.classList.remove("levelWhite");
+      StartBtn.classList.remove("StartBtnWhite");
+      Header.style.backgroundColor='black';
+      Header.style.borderBottom = '3px dotted white';
+      circleColor.style.backgroundColor='white';
+      body.style.backgroundImage= "url('css/img/2.jpg')";
+      modeText.style.color='white';
+      Status.style.color='white';
+      modeText.style.backgroundColor='black';
+      Board.style.backgroundColor="black";
+      for (var row = 0; row < 3; row++) {
+        for (var col = 0; col < 3; col++) {
+          var card = document.getElementById('card' + row + col);
+          card.classList.remove("cardWhite");
+        }
+      }
+    }
+    if (modeSwitch.checked) {
+      localStorage.setItem('darkMode', 'enabled');
+    } else {
+      localStorage.setItem('darkMode', 'disabled');
+    }
+  }
+
 
 // Initialize the board
 var board = [  ['', '', ''],
@@ -9,7 +110,6 @@ var board = [  ['', '', ''],
 var player = 'X';
 
 let Gameplay=-1;
-let ChooseLevel=false;
 let BtnChange= false;
 const button1 = document.getElementById("level1");
 const button2 = document.getElementById("level2");
@@ -20,43 +120,94 @@ BackBtn.style.display="block";
 button1.onclick = function() {
   Gameplay=1;
   ChooseLevel=true;
-  button1.classList.remove('level');
-  button1.classList.add('levelChoosen');
-  button2.classList.add('level');
-  button2.classList.remove('levelChoosen');
-  button3.classList.add('level');
-  button3.classList.remove('levelChoosen');
   const StartBtn = document.getElementById("StartBtn");
   StartBtn.classList.remove('StartBtn');
-  StartBtn.classList.add('StartBtn2');
+  if (!modeSwitch.checked) { 
+    StartBtn.classList.add('StartBtn2');
+    button1.classList.add('level');
+    button1.classList.remove('levelWhite');
+    button1.classList.add('levelChoosen');
+    button2.classList.add('level');
+    button2.classList.remove('levelWhite');
+    button2.classList.remove('levelChoosen');
+    button2.classList.remove('levelChoosenWhite');
+    button3.classList.add('level');
+    button3.classList.remove('levelWhite');
+    button3.classList.remove('levelChoosen');
+    button3.classList.remove('levelChoosenWhite');
+  }
+  else {
+    StartBtn.classList.add('StartBtn2White');
+    button1.classList.add('levelChoosenWhite');
+    button2.classList.add('levelWhite');
+    button2.classList.remove('levelChoosenWhite');
+    button2.classList.remove('levelChoosen');
+    button3.classList.add('levelWhite');
+    button3.classList.remove('levelChoosenWhite');
+    button3.classList.remove('levelChoosen');
+  }
   console.log("Start Easy Mode game");
 };
 button2.onclick = function() {
   Gameplay=2;
   ChooseLevel=true;
-  button1.classList.add('level');
-  button1.classList.remove('levelChoosen');
-  button2.classList.remove('level');
-  button2.classList.add('levelChoosen');
-  button3.classList.add('level');
-  button3.classList.remove('levelChoosen');
   const StartBtn = document.getElementById("StartBtn");
   StartBtn.classList.remove('StartBtn');
-  StartBtn.classList.add('StartBtn2');
+  if (!modeSwitch.checked) { 
+    StartBtn.classList.add('StartBtn2');
+    button2.classList.add('level');
+    button2.classList.remove('levelWhite');
+    button2.classList.add('levelChoosen');
+    button1.classList.add('level');
+    button1.classList.remove('levelWhite');
+    button1.classList.remove('levelChoosen');
+    button1.classList.remove('levelChoosenWhite');
+    button3.classList.add('level');
+    button3.classList.remove('levelWhite');
+    button3.classList.remove('levelChoosen');
+    button3.classList.remove('levelChoosenWhite');
+  }
+  else {
+    StartBtn.classList.add('StartBtn2White');
+    button2.classList.add('levelChoosenWhite');
+    button1.classList.add('levelWhite');
+    button1.classList.remove('levelChoosenWhite');
+    button1.classList.remove('levelChoosen');
+    button3.classList.add('levelWhite');
+    button3.classList.remove('levelChoosenWhite');
+    button3.classList.remove('levelChoosen');
+  }
   console.log("Start Hard Mode game")
 };
 button3.onclick = function() {
   Gameplay=3;
   ChooseLevel=true;
-  button1.classList.add('level');
-  button1.classList.remove('levelChoosen');
-  button2.classList.add('level');
-  button2.classList.remove('levelChoosen');
-  button3.classList.remove('level');
-  button3.classList.add('levelChoosen');
   const StartBtn = document.getElementById("StartBtn");
   StartBtn.classList.remove('StartBtn');
-  StartBtn.classList.add('StartBtn2');
+  if (!modeSwitch.checked) { 
+    StartBtn.classList.add('StartBtn2');
+    button3.classList.add('level');
+    button3.classList.remove('levelWhite');
+    button3.classList.add('levelChoosen');
+    button1.classList.add('level');
+    button1.classList.remove('levelWhite');
+    button1.classList.remove('levelChoosen');
+    button1.classList.remove('levelChoosenWhite');
+    button2.classList.add('level');
+    button2.classList.remove('levelWhite');
+    button2.classList.remove('levelChoosen');
+    button2.classList.remove('levelChoosenWhite');
+  }
+  else {
+    StartBtn.classList.add('StartBtn2White');
+    button3.classList.add('levelChoosenWhite');
+    button1.classList.add('levelWhite');
+    button1.classList.remove('levelChoosenWhite');
+    button1.classList.remove('levelChoosen');
+    button2.classList.add('levelWhite');
+    button2.classList.remove('levelChoosenWhite');
+    button2.classList.remove('levelChoosen');
+  }
   console.log("Start Expert Mode game")
 };
 StartBtn.onclick = function() {
@@ -66,11 +217,13 @@ StartBtn.onclick = function() {
   const container = document.getElementById("InsideContainer");
   const StartbtnDiv = document.getElementById("playGame");
   const ResetBtn = document.getElementById("reset-button");
+  const modeText= document.getElementById("ModeText");
   BackBtn.innerHTML="Choose Level<span></span><span></span><span></span><span></span><span></span><span></span>";
   ResetBtn.style.display="block";
   Choose.style.display = "none";
   StartbtnDiv.style.display = "none";
   container.style.display= "block";
+  modeText.style.display= "none";
   if(Gameplay==3) {
     // Array of numbers
     const numbers = [0, 2];

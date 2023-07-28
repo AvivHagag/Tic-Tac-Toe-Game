@@ -1,3 +1,75 @@
+// Dark Mode 
+const modeSwitch = document.getElementById("mode-switch");
+const circleColor = document.querySelector('.circle');
+
+// Check for previously saved dark mode preference in localStorage
+const savedDarkMode = localStorage.getItem('darkMode');
+if (savedDarkMode === 'enabled') {
+  modeSwitch.checked = true;
+  toggleDarkMode();
+} else {
+  modeSwitch.checked = false;
+  toggleDarkMode();
+}
+
+modeSwitch.addEventListener("change", toggleDarkMode);
+
+if (!modeSwitch.checked) { 
+    circleColor.style.backgroundColor= 'white';
+    console.log("wwwwww")
+}
+
+function toggleDarkMode() {
+   const navbarTitle = document.getElementById("navbar-title");
+   const BackBtn = document.getElementById("back-button");
+   const ResetBtn = document.getElementById("reset-button");
+   const Header = document.querySelector('header');
+   const body= document.querySelector('body');
+   const Status= document.getElementById("status");
+   const Board = document.getElementById("board");
+   if (modeSwitch.checked) {
+      console.log("whitemode")
+      body.style.backgroundImage= "url('css/img/1.jpg')";
+      circleColor.style.backgroundColor='black';
+      navbarTitle.style.color = "#000";
+      BackBtn.classList.add("whiteBtn");
+      ResetBtn.classList.add("whiteBtn");
+      Header.style.backgroundColor='white';
+      Header.style.borderBottom = '3px dotted black';
+      Status.style.color='black';
+      Board.style.backgroundColor="white";
+      for (var row = 0; row < 3; row++) {
+        for (var col = 0; col < 3; col++) {
+          var card = document.getElementById('card' + row + col);
+          card.classList.add("cardWhite");
+        }
+      }
+      
+   }else {
+      navbarTitle.style.color = "#eee";
+      BackBtn.classList.remove("whiteBtn");
+      ResetBtn.classList.remove("whiteBtn");
+      Header.style.backgroundColor='black';
+      Header.style.borderBottom = '3px dotted white';
+      circleColor.style.backgroundColor='white';
+      body.style.backgroundImage= "url('css/img/2.jpg')";
+      Status.style.color='white';
+      Board.style.backgroundColor="black";
+      for (var row = 0; row < 3; row++) {
+        for (var col = 0; col < 3; col++) {
+          var card = document.getElementById('card' + row + col);
+          card.classList.remove("cardWhite");
+        }
+      }
+    }
+    if (modeSwitch.checked) {
+      localStorage.setItem('darkMode', 'enabled');
+    } else {
+      localStorage.setItem('darkMode', 'disabled');
+    }
+  }
+
+
 // Initialize the board
 var board = [  ['', '', ''],
   ['', '', ''],
