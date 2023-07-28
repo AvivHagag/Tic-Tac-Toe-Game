@@ -36,7 +36,7 @@ function toggleDarkMode() {
       console.log("whitemode")
       if(ChooseLevel==true) {
         StartBtn.classList.add('StartBtn2White');
-        StartBtn.classList.remove('StartBtn');
+        // StartBtn.classList.remove('StartBtn');
         if(Gameplay==1) {
           level1.classList.add('levelChoosenWhite');
         }
@@ -120,8 +120,6 @@ BackBtn.style.display="block";
 button1.onclick = function() {
   Gameplay=1;
   ChooseLevel=true;
-  const StartBtn = document.getElementById("StartBtn");
-  StartBtn.classList.remove('StartBtn');
   if (!modeSwitch.checked) { 
     StartBtn.classList.add('StartBtn2');
     button1.classList.add('level');
@@ -151,8 +149,6 @@ button1.onclick = function() {
 button2.onclick = function() {
   Gameplay=2;
   ChooseLevel=true;
-  const StartBtn = document.getElementById("StartBtn");
-  StartBtn.classList.remove('StartBtn');
   if (!modeSwitch.checked) { 
     StartBtn.classList.add('StartBtn2');
     button2.classList.add('level');
@@ -182,8 +178,6 @@ button2.onclick = function() {
 button3.onclick = function() {
   Gameplay=3;
   ChooseLevel=true;
-  const StartBtn = document.getElementById("StartBtn");
-  StartBtn.classList.remove('StartBtn');
   if (!modeSwitch.checked) { 
     StartBtn.classList.add('StartBtn2');
     button3.classList.add('level');
