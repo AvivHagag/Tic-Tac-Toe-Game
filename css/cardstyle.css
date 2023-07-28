@@ -139,6 +139,26 @@ header {
     background-position: center;
     /* Optional: Add rounded corners to the element (you can adjust this as needed) */
     border-radius: 50%;
+    transition: transform 0.15s;
+  }
+
+  .avatar:hover {
+    animation: rotateAndScaleAnimation 0.4s forwards;
+  }
+  
+  @keyframes rotateAndScaleAnimation {
+    0% {
+      transform: scale(1) translateXY(0);
+    }
+    40% {
+      transform: scale(1.2) translateY(-9px);
+    }
+    60% {
+      transform: scale(1.2) translateY(9px);
+    }
+    100% {
+      transform: scale(1.15) translateY(0);
+    }
   }
 
   .card-text {
@@ -172,11 +192,11 @@ header {
   .icon {
     width: 30px;
     height: 30px;
-    margin-right: 5px;
+    margin-right: 12px;
+    transition: transform 0.3s;
   }
   .icon:hover {
-    width: 32px;
-    height: 32px;
+    transform: rotate(360deg) scale(1.3);
   }
   .buttons {
     margin: -10% auto;
