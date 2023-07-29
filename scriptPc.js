@@ -1,3 +1,5 @@
+// -- Website Author: 
+// --                Aviv Hagag 
 // Dark Mode 
 const modeSwitch = document.getElementById("mode-switch");
 const circleColor = document.querySelector('.circle');
@@ -16,7 +18,6 @@ modeSwitch.addEventListener("change", toggleDarkMode);
 
 if (!modeSwitch.checked) { 
     circleColor.style.backgroundColor= 'white';
-    console.log("wwwwww")
 }
 
 function toggleDarkMode() {
@@ -33,7 +34,6 @@ function toggleDarkMode() {
    const Status= document.getElementById("status");
    const Board = document.getElementById("board");
    if (modeSwitch.checked) {
-      console.log("whitemode")
       if(ChooseLevel==true) {
         StartBtn.classList.add('StartBtn2White');
         // StartBtn.classList.remove('StartBtn');
@@ -227,7 +227,6 @@ StartBtn.onclick = function() {
     const randomIndex2 = Math.floor(Math.random() * numbers.length);
     const randomNumber2 = numbers[randomIndex2];
     board[randomNumber1][randomNumber2] = 'O';
-    console.log("Pc start !")
     drawBoard();
   }
 }
@@ -312,7 +311,6 @@ function drawBoard() {
     for (var place=0;place<3;place++) {
         if(winningCards) {
         var card = document.getElementById('card' + winningCards[place][0] + winningCards[place][1]);
-        console.log(card)
         card.classList.remove('X');
         card.classList.remove('O');
         card.classList.add('W');
@@ -345,6 +343,7 @@ function cardClicked() {
 
     // Check if the card has already been played
     if (board[row][col] !== '') {
+      running=false;
       return;
     }
 
@@ -377,7 +376,6 @@ function cardClicked() {
       if (player === 'X') {
         switch(Gameplay) {
           case 1: {
-            console.log("1"); 
             // Switch to the Computer
             player = 'O';
             //Status of the player
@@ -430,7 +428,6 @@ function cardClicked() {
             break;
           }
           case 2: {
-              console.log("2");
             // Switch to the Computer
             player = 'O';
             //Status of the player
@@ -916,7 +913,6 @@ function resetGame() {
       const randomIndex2 = Math.floor(Math.random() * numbers.length);
       const randomNumber2 = numbers[randomIndex2];
       board[randomNumber1][randomNumber2] = 'O';
-      console.log("Pc start !")
       drawBoard();
     }
 

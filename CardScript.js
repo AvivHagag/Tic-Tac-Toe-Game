@@ -1,3 +1,5 @@
+// -- Website Author: 
+// --                Aviv Hagag 
 // geting canvas by Boujjou Achraf
 var c = document.getElementById("c");
         var ctx = c.getContext("2d");
@@ -92,25 +94,21 @@ var c = document.getElementById("c");
     modeSwitch.addEventListener("change", toggleDarkMode);
     if (!modeSwitch.checked) { 
       circleColor.style.backgroundColor= 'white';
-      console.log("wwwwww")
     }
     
 
     function toggleDarkMode() {
-      console.log("Startttttt");
       const navbarTitle = document.getElementById("navbar-title");
       const BackBtn = document.getElementById("back-button");
       const Header = document.querySelector('header');
       const circleColor = document.querySelector('.circle');
       if (modeSwitch.checked) {
-        console.log("darkmode")
         circleColor.style.backgroundColor='black';
         navbarTitle.style.color = "#000";
         BackBtn.classList.add("whiteBtn");
         Header.style.borderBottom = '3px dotted black';
         // draw();
       } else {
-        console.log("gayyyyyyy")
         circleColor.style.backgroundColor= 'white';
         navbarTitle.style.color = "#eee";
         BackBtn.classList.remove("whiteBtn");

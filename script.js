@@ -1,3 +1,5 @@
+// -- Website Author: 
+// --                Aviv Hagag 
 // Dark Mode 
 const modeSwitch = document.getElementById("mode-switch");
 const circleColor = document.querySelector('.circle');
@@ -16,7 +18,6 @@ modeSwitch.addEventListener("change", toggleDarkMode);
 
 if (!modeSwitch.checked) { 
     circleColor.style.backgroundColor= 'white';
-    console.log("wwwwww")
 }
 
 function toggleDarkMode() {
@@ -28,7 +29,6 @@ function toggleDarkMode() {
    const Status= document.getElementById("status");
    const Board = document.getElementById("board");
    if (modeSwitch.checked) {
-      console.log("whitemode")
       body.style.backgroundImage= "url('css/img/1.jpg')";
       circleColor.style.backgroundColor='black';
       navbarTitle.style.color = "#000";
@@ -155,7 +155,6 @@ function drawBoard() {
     for (var place=0;place<3;place++) {
         if(winningCards) {
         var card = document.getElementById('card' + winningCards[place][0] + winningCards[place][1]);
-        console.log(card)
         card.classList.remove('X');
         card.classList.remove('O');
         card.classList.add('W');

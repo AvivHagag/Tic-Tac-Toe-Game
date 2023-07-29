@@ -1,9 +1,10 @@
+/*  -- Website Author: 
+    --                Aviv Hagag  */
 body {
   background: black;
   color: #EEEEEE;
   text-align: center;
   font-family: "Lato", sans-serif;
-  /* background: radial-gradient(ellipse at center, #fffeea 0%, #fffeea 35%, #b7e8eb 100%); */
   background: radial-gradient(ellipse at center, rgb(96, 96, 96) 0%, #303030 35%, #000000 100%);
   overflow: hidden;
 }
@@ -12,7 +13,6 @@ img {
   top: 5%;
   left: 50%;
   max-height: 50vh;
-  /* transform: translateX(-50%);  */
   transform: translate(-50%,-10%);
   padding-bottom: 15%;
 }
@@ -25,8 +25,6 @@ img {
 /* Media query targeting screens with a maximum width of 400 pixels or less */
 @media screen and (max-width: 400px) {
   img {
-    /* max-width: 90%;
-    max-height: 60%; */
     max-height: 30vh;
     max-width: 40vh;
   }
@@ -239,7 +237,7 @@ a {
   -webkit-transform: translate3d(0.08361px, -154.99997px, 0);
   transform: translate3d(0.08361px, -154.99997px, 0);
 }
-/* 
+/* Keeping this as an upgrade option in the future
 .menu-open:checked ~ .menu-item:nth-child(4) {
   transition-duration: 280ms;
   -webkit-transition-duration: 280ms;
@@ -254,7 +252,8 @@ a {
   transform: translate3d(120.9466px, 102.47586px, 0);
 }
 
-/* .menu-open:checked ~ .menu-item:nth-child(6) {
+/* Keeping this as an upgrade option in the future
+.menu-open:checked ~ .menu-item:nth-child(6) {
   transition-duration: 480ms;
   -webkit-transition-duration: 480ms;
   -webkit-transform: translate3d(0.08361px, 104.99997px, 0);
@@ -268,14 +267,16 @@ a {
   transform: translate3d(-120.86291px, 102.62064px, 0);
 }
 
-/* .menu-open:checked ~ .menu-item:nth-child(5) {
+/* Keeping this as an upgrade option in the future
+.menu-open:checked ~ .menu-item:nth-child(5) {
   transition-duration: 680ms;
   -webkit-transition-duration: 680ms;
   -webkit-transform: translate3d(-91.03006px, -52.33095px, 0);
   transform: translate3d(-91.03006px, -52.33095px, 0);
 } */
 
-/* .menu-open:checked ~ .menu-item:nth-child(5) {
+/* Keeping this as an upgrade option in the future
+.menu-open:checked ~ .menu-item:nth-child(5) {
   transition-duration: 780ms;
   -webkit-transition-duration: 780ms;
   -webkit-transform: translate3d(-0.25084px, -104.9997px, 0);

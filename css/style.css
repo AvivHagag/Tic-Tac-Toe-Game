@@ -1,3 +1,5 @@
+/*  -- Website Author: 
+    --                Aviv Hagag  */
 h1 {
   color: inherit;
   text-decoration: none;
@@ -597,10 +599,6 @@ body {
 /* Add this CSS for the toggle switch */
 /* Styles for the toggle switch */
 .mode-toggle {
-  /* display: flex;
-  align-items: center;
-  margin-right: 15px;
-  font-size: inherit; Set the font size to inherit from h1 */
   position: absolute;
   top: 30%;
   right: 2%;
@@ -733,26 +731,3 @@ body {
   border: 2px solid black;
   transition: transform 0.3s;
 }
-
-/* .cardWhite.X {
-  color: white;
-  background-color: rgb(255, 32, 32);
-  border-color: black;
-}
-
-.cardWhite.O {
-  color: white;
-  background-color: rgb(13, 69, 255);
-  border-color: black;
-}
-
-.cardWhite.W {
-  color: white;
-  background-color: goldenrod;
-  border-width: 0px;
-}
-.cardWhite.Tie {
-  color: white;
-  background-color: silver;
-  border-width: 0px;
-} */

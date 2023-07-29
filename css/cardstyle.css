@@ -1,36 +1,5 @@
-/* h1 {
-    color: inherit;
-    text-decoration: none;
-    display: inline-block;
-    cursor: pointer;
-    background:
-      linear-gradient(
-        to right, rgba(48, 48, 48, 0.35),rgba(48, 48, 48, 0.35)),
-      linear-gradient(
-        to right,
-        rgb(209, 209, 209),
-        rgb(128, 128, 128),
-        rgb(64, 64, 64)
-    );
-    background-size: 100% 3px, 0 3px;
-    background-position: 100% 100%, 0 100%;
-    background-repeat: no-repeat;
-    transition: background-size 300ms;
-  }
-  
-  h1:hover {
-    background-size: 0 3px, 100% 3px;
-  }
-   
-   header {
-    border-bottom: 3px dotted white;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    justify-content: center;
-    text-align: center;
-  }  */
-/* Styles for h1 */
+/*  -- Website Author: 
+    --                Aviv Hagag  */
 h1 {
   color: white;
   text-decoration: none;
@@ -148,13 +117,13 @@ header {
   
   @keyframes rotateAndScaleAnimation {
     0% {
-      transform: scale(1) translateXY(0);
+      transform: scale(1) translateY(0);
     }
     40% {
-      transform: scale(1.2) translateY(-9px);
+      transform: scale(1.2) translateY(-19px);
     }
     60% {
-      transform: scale(1.2) translateY(9px);
+      transform: scale(1.2) translateY(19px);
     }
     100% {
       transform: scale(1.15) translateY(0);
@@ -333,10 +302,6 @@ header {
 /* Add this CSS for the toggle switch */
 /* Styles for the toggle switch */
 .mode-toggle {
-  /* display: flex;
-  align-items: center;
-  margin-right: 15px;
-  font-size: inherit; Set the font size to inherit from h1 */
   position: absolute;
   top: 30%;
   right: 2%;
