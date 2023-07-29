@@ -43,12 +43,15 @@
 - `Player` - Handles human player moves
 
 ### Gameplay Screenshots
+#### Light Mode:
 
 <p align="center">
-Light Mode:
   <img src="https://user-images.githubusercontent.com/114755882/256970664-09c6e3c8-3ee4-42f4-a413-80aad5ca877f.png" width="45%">
+</p>
 
-Dark Mode:
+#### Dark Mode:
+
+<p align="center">
   <img src="https://user-images.githubusercontent.com/114755882/256970660-5e24adcd-d82a-4f0a-8477-37792493ee8c.png" width="45%">
 </p>
 
