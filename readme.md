@@ -28,13 +28,14 @@
 
 ### Frontend
 
-- <img src="https://user-images.githubusercontent.com/11978772/222932733-a7e679a4-3520-47b0-aa28-cd613fd63baf.png" width="20" height="20"> HTML
-- <img src="https://user-images.githubusercontent.com/11978772/222932844-08f5241a-f9bb-441f-8076-80b52e9c4f12.png" width="20" height="20"> CSS 
+- <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/120px-HTML5_logo_and_wordmark.svg.png" height="20"> HTML
+  
+- <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/120px-CSS3_logo_and_wordmark.svg.png" height="20"> CSS
 
-### Backend
+### Backend 
 
-- <img src="https://user-images.githubusercontent.com/11978772/222932928-950bc51d-26a8-4b3e-b730-d4a6d37b7500.png" width="20" height="20"> JavaScript
-
+- <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/120px-Unofficial_JavaScript_logo_2.svg.png" height="20"> JavaScript
+  
 ### Key Components
 
 - `Board` - Renders the 3x3 grid and pieces using HTML canvas
@@ -46,13 +47,13 @@
 #### Light Mode:
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/114755882/256970664-09c6e3c8-3ee4-42f4-a413-80aad5ca877f.png" width="45%">
+  <img src="https://user-images.githubusercontent.com/114755882/256970664-09c6e3c8-3ee4-42f4-a413-80aad5ca877f.png">
 </p>
 
 #### Dark Mode:
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/114755882/256970660-5e24adcd-d82a-4f0a-8477-37792493ee8c.png" width="45%">
+  <img src="https://user-images.githubusercontent.com/114755882/256970660-5e24adcd-d82a-4f0a-8477-37792493ee8c.png">
 </p>
 
 ### About Page
