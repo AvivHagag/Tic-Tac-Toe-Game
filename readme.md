@@ -61,3 +61,14 @@
 <p align="center">
   <img src="https://user-images.githubusercontent.com/114755882/256970653-9408dfb7-0684-4a88-8cac-52f966bba81d.png"> 
 </p>
+
+### Responsive design Example:
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/114755882/260456349-2b3f33c1-182f-45c3-abcf-f559fbcfac42.jpg"> 
+</p>
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/114755882/260456342-bd5a6bc1-9e3c-4fe1-8938-fd1dd2e09e0b.jpg"> 
+</p>
+
+
